@@ -2,6 +2,7 @@ package ysoserial.test.payloads;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.concurrent.Callable;
 
@@ -31,7 +32,7 @@ public class FileUploadTest implements CustomTest {
      */
     public FileUploadTest () {
         try {
-            source = File.createTempFile("fut", "-source");
+            source = Files.createTempFile("fut", "-source").toFile();
             repo = Files.createTempDir();
         }
         catch ( IOException e ) {
